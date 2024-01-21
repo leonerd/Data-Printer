@@ -10,9 +10,9 @@ exit;
 sub test_object_pad {
     SKIP: {
         my $error = Data::Printer::Common::_tryme(
-            'use Object::Pad 0.60; class TestClass { has $x :param = 42; method one($dX) { } method two { } }'
+            'use Object::Pad 0.66; class TestClass { field $x :param = 42; method one($dX) { } method two { } }'
         );
-        skip 'Object::Pad 0.60+ not found', 1 if $error;
+        skip 'Object::Pad 0.66+ not found', 1 if $error;
 
         my $ddp = Data::Printer::Object->new( colored => 0, class => { show_reftype => 1 } );
         my $obj = TestClass->new( x => 666 );
